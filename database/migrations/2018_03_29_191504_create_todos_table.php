@@ -17,6 +17,7 @@ class CreateTodosTable extends Migration
             'todos', 
             function (Blueprint $table) {
                 $table->increments('id');
+                $table->unsignedInteger('user_id');
                 $table->string('title');
                 $table->text('description')->nullable();
                 // $table->enum('priority', ['low', 'medium', 'high']);

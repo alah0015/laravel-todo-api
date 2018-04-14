@@ -38,6 +38,16 @@ class Todo extends Model
     protected $appends = ['is_complete'];
 
     /**
+     * Get the user to which the Todo has been assigned.
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user() 
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    /**
      * Get the category to which the Todo has been assigned.
      * 
      * @return Illuminate\Database\Eloquent\Relations\BelongsTo

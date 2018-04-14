@@ -6,6 +6,7 @@ $factory->define(
     App\Todo::class, 
     function (Faker $faker) {
         return [
+            'user_id' => rand(1, 2),
             'title' => $faker->sentence(4, true),
             'description' => $faker->paragraph(4, true),
             'due_at' => $faker->dateTimeBetween('now', '+3 months'),
