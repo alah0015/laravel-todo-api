@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Scopes\UserScope;
 use Illuminate\Database\Eloquent\Model;
 use phpDocumentor\Reflection\Types\Boolean;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,6 +13,18 @@ class Todo extends Model
     public static $PRIORITY_LOW = 1;
     public static $PRIORITY_MEDIUM = 2;
     public static $PRIORITY_HIGH = 3;
+
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new UserScope);
+    }
 
     /**
      * The attributes that aren't mass assignable.

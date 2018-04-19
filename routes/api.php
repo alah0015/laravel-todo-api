@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get(
     }
 );
 
-Route::apiResource('todos', 'TodoController');
+Route::apiResource('todos', 'TodoController')->middleware('auth:api');
 Route::apiResource('categories', 'CategoryController')->only(['index', 'show']);
 Route::apiResource('priorities', 'PriorityController')->only(['index', 'show']);
 
